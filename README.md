@@ -1,496 +1,248 @@
-# Enterprise IAM Engineering Portfolio
+# Hakan Silitalay | Enterprise IAM & Identity Governance
 
-### Identity & Access Management | Identity Governance | Access Security | IAM Engineering
+**Identity & Access Management | Identity Governance & Administration | IAM Engineering | Access Security**
 
-**Hakan Silitalay**
+**5 Years of Hands-On Access Management Experience | Higher Education | Approximately 100 Users Supported**
 
-**Professional Experience:** 5 Years in Identity & Access Management Functions
-
-**GitHub:** https://github.com/silitalayhakan
-
-**Portfolio:** https://github.com/silitalayhakan/enterprise-iam-engineering
+[GitHub Profile](https://github.com/silitalayhakan) · [IAM Engineering Portfolio](https://github.com/silitalayhakan/enterprise-iam-engineering)
 
 ---
 
-## Professional Profile
+## Professional Overview
 
-Identity and Access Management professional with approximately five years of hands-on access management experience in a university environment, supporting an access scope of approximately 100 users.
+I am an Identity and Access Management (IAM) professional with approximately five years of hands-on access management experience in a university environment, supporting an access scope of approximately 100 users.
 
 My professional responsibilities included user provisioning and deprovisioning, account administration, password resets, role-based access restrictions, least-privilege enforcement, time-bound access management, activity reviews, and access termination.
 
-My experience also includes working with SQL and Python for reporting and operational analysis.
+I have also utilized **SQL and Python** for operational reporting and analysis.
 
-I combine practical access management experience with technical exposure to enterprise IAM and Identity Governance and Administration (IGA) technologies.
+My background combines practical identity and access administration with technical implementation work involving **identity lifecycle automation, Identity Governance and Administration (IGA), directory integration, and authentication technologies**.
 
-My current technical focus includes Microsoft Entra ID, midPoint, Active Directory, PowerShell automation, identity lifecycle management, access governance, and authentication protocols.
+My technical focus includes **Microsoft Entra ID, Active Directory, PowerShell, midPoint, OpenLDAP, RBAC, JML automation, access governance, and enterprise authentication protocols**.
 
-This portfolio documents technical implementations, configuration exercises, architectural analysis, and security controls related to enterprise identity management.
+This portfolio documents technical implementations, configuration work, security controls, and validation activities related to enterprise identity management.
 
 ---
 
-## Core IAM Competencies
+## Professional Experience | Identity & Access Management
+
+**University Environment | Approximately 5 Years | ~100 Users**
 
 ### Identity Lifecycle Management
 
-- User Provisioning
-- User Deprovisioning
-- Account Administration
-- Access Modification
-- Joiner, Mover, Leaver (JML) Processes
-- Time-Based Access Management
-- Access Termination
-- Account Activity Reviews
+- Managed user provisioning and deprovisioning activities.
+- Administered user accounts and access permissions.
+- Modified access based on changing responsibilities.
+- Managed time-based access restrictions.
+- Removed access when authorization periods ended.
+- Supported account lifecycle management procedures.
 
 ### Access Control & Security
 
-- Role-Based Access Control (RBAC)
-- Least Privilege
-- User Access Restrictions
-- Access Scope Management
-- Account Security
-- Password Administration
-- Access Review
-- Identity Security Controls
+- Applied role-based access restrictions.
+- Implemented least-privilege principles within assigned access scopes.
+- Managed authorization boundaries and access limitations.
+- Performed account activity reviews.
+- Supported password administration and account security.
+- Maintained oversight of user access requirements.
 
-### Technical & Operational Skills
+### Reporting & Operational Analysis
 
-- Identity and Access Administration
-- SQL Reporting
-- Python-Based Reporting
-- User Activity Analysis
-- Access Documentation
-- Operational Access Controls
-- Account Lifecycle Procedures
+- Used SQL for operational reporting and data analysis.
+- Utilized Python for reporting and analysis.
+- Reviewed account activity and access-related information.
+- Supported documentation of access management activities.
+
+**Professional Foundation:** Identity lifecycle operations, access administration, RBAC, least privilege, account security, and access-related reporting.
 
 ---
 
-## Enterprise IAM Technologies
+# Technical Implementation Portfolio
 
-The following technologies are included in my technical implementation and validation portfolio.
+This repository documents enterprise-oriented IAM engineering and identity governance implementations.
 
-| Technology | Technical Focus |
-|------------|-----------------|
-| Microsoft Entra ID | Identity Management, RBAC, Conditional Access |
-| Microsoft Active Directory | User and Group Administration |
-| PowerShell | IAM Automation and Account Management |
-| midPoint | Identity Governance and Administration |
-| OpenLDAP | Directory Services and Provisioning |
-| Auth0 | Authentication, SSO and Federation |
-| OAuth 2.0 | Delegated Authorization |
-| OpenID Connect | Identity Federation |
-| SAML 2.0 | Enterprise Single Sign-On |
-| SQL | Identity Data Analysis and Reporting |
-| Python | Reporting and Automation |
+The technical work extends my professional access management background into modern IAM platforms, identity automation, access governance, and authentication technologies.
 
-Enterprise platform experience is documented through individual technical projects and supporting evidence.
+Each implementation is organized around technical objectives, configuration, validation, security considerations, and supporting evidence.
+
+Implementation results and technical artifacts are added as they are completed and verified.
 
 ---
 
-# IAM Engineering Projects
+## 01 | Identity Lifecycle Automation & IGA
 
-This repository contains a structured collection of enterprise IAM implementation and validation projects.
-
-Each project documents the technical objective, configuration approach, security considerations, and supporting evidence.
-
-Project documentation and evidence are added as implementations are completed.
-
----
-
-## 1. IAM Architecture and Stakeholder Mapping
-
-### Objective
-
-Understand and document how enterprise identity systems integrate across HR platforms, identity governance solutions, directories, and authentication services.
-
-### Architecture
-
-```text
-HR System
-    |
-    v
-Identity Governance Platform
-    |
-    |---- Identity Lifecycle
-    |---- Provisioning
-    |---- Role Management
-    |---- Access Reviews
-    |---- Audit Records
-    |
-    v
-Enterprise Directory
-    |
-    v
-Applications and Services
-```
+**Platforms:** midPoint | SimplifyHR | OpenLDAP
 
 ### Technical Scope
 
-- Identity architecture
-- Source-of-truth identification
-- Identity lifecycle processes
-- Governance responsibilities
-- Application access requirements
-- Security and audit requirements
-
-### Enterprise Technologies
-
-midPoint, OpenLDAP, Microsoft Entra ID, Active Directory
-
-### Evidence
-
-Architecture diagrams and configuration documentation will be included with the implementation.
-
----
-
-## 2. HR-Driven Identity Onboarding
-
-### Objective
-
-Implement identity creation processes based on employee information maintained by an authoritative HR source.
+- HR-driven identity onboarding.
+- Identity correlation and attribute mapping.
+- Automated user provisioning.
+- Directory integration with OpenLDAP.
+- Joiner, Mover, Leaver (JML) lifecycle processes.
+- Role-Based Access Control (RBAC).
+- Automated role assignments.
+- Account deprovisioning and access removal.
+- Identity reconciliation.
+- Access certification and governance controls.
 
 ### Architecture
 
 ```text
 SimplifyHR
-    |
-    v
-midPoint
-    |
-    v
-Identity Creation
-    |
-    v
-Target Directory
+(Authoritative HR Source)
+        |
+        v
+      midPoint
+(Identity Governance)
+        |
+        |--- Identity Lifecycle
+        |--- Provisioning
+        |--- RBAC
+        |--- Access Reviews
+        |--- Reconciliation
+        |--- Audit Events
+        |
+        v
+     OpenLDAP
+(Target Directory)
+        |
+        v
+  User Accounts
 ```
+
+### Technical Evidence
+
+Configuration files, identity mappings, role definitions, provisioning results, lifecycle testing, and sanitized audit records will be documented as implementations are validated.
+
+---
+
+## 02 | Microsoft Entra ID, Active Directory & PowerShell
+
+**Platforms:** Microsoft Entra ID | Active Directory | PowerShell
 
 ### Technical Scope
 
-- HR source integration
-- Identity correlation
-- Attribute mapping
-- Automated identity creation
-- Duplicate identity prevention
-- Provisioning validation
+- User and group administration.
+- Identity provisioning and deprovisioning.
+- Group membership management.
+- Role-Based Access Control.
+- Identity lifecycle automation.
+- PowerShell scripting for IAM operations.
+- Account status management.
+- Access reporting and validation.
+- Conditional Access configuration and testing.
+- Identity Governance and Access Reviews.
+- Privileged access governance concepts.
 
-### Evidence
+### Technical Implementation Focus
 
-Connector configurations, screenshots, and validation results will be documented.
+**Identity Lifecycle Automation**
+
+```text
+HR / Identity Data
+        |
+        v
+PowerShell Automation
+        |
+        |--- Create User
+        |--- Assign Groups
+        |--- Modify Access
+        |--- Disable Account
+        |--- Remove Access
+        |
+        v
+Active Directory / Entra ID
+        |
+        v
+Validation & Reporting
+```
+
+### Technical Evidence
+
+PowerShell scripts, test identities, configuration documentation, group membership changes, and lifecycle validation results will be published as projects are completed.
 
 ---
 
-## 3. Provisioning to a Target Directory
+## 03 | Access Governance, Reviews & Auditability
 
-### Objective
-
-Configure identity provisioning between an IGA platform and a directory service.
+**Focus Areas:** Identity Governance | RBAC | Access Reviews | IAM Controls
 
 ### Technical Scope
 
-- midPoint resource configuration
-- OpenLDAP integration
-- Account attribute mapping
-- Role-driven provisioning
-- Account creation validation
-- Provisioning event analysis
+- User Access Reviews.
+- Role-Based Access Control.
+- Access Request and Approval Workflows.
+- Access Certification.
+- Privileged Access Reviews.
+- Least-Privilege Validation.
+- Segregation of Duties (SoD).
+- Access Provisioning Controls.
+- Access Termination Controls.
+- Audit Evidence Collection.
+- Identity Governance Risk Assessment.
+- Access Revocation and Remediation.
 
-### Architecture
+### Governance Workflow
 
 ```text
-midPoint
-    |
-    v
-Provisioning Connector
-    |
-    v
-OpenLDAP
-    |
-    v
-User Account
+Identity & Access Inventory
+          |
+          v
+     Access Review
+          |
+          v
+    Reviewer Decision
+          |
+     +----+----+
+     |         |
+   Approve   Revoke
+     |         |
+     |         v
+     |     Remediation
+     |         |
+     +----+----+
+          |
+          v
+      Audit Trail
 ```
 
-### Evidence
+### Security & Compliance Context
 
-Resource configurations, provisioning results, and supporting screenshots will be added.
+Technical projects examine IAM controls and their relationship to established governance and security frameworks.
+
+**Relevant Frameworks:**
+
+- NIST Cybersecurity Framework
+- NIST SP 800-53
+- COBIT
+- SOX IT General Controls
+
+### Technical Evidence
+
+Access review records using fictional identities, role definitions, approval workflows, remediation results, and control-to-evidence mapping will be included as implementations are validated.
 
 ---
 
-## 4. Joiner and Leaver Lifecycle
+## 04 | Single Sign-On & Identity Federation
 
-### Objective
-
-Validate identity lifecycle processes for employee onboarding and termination.
-
-### Joiner Process
-
-```text
-New Employee
-    |
-    v
-HR Record Created
-    |
-    v
-Identity Provisioned
-    |
-    v
-Access Assigned
-```
-
-### Leaver Process
-
-```text
-Employee Termination
-    |
-    v
-HR Status Updated
-    |
-    v
-Identity Lifecycle Process
-    |
-    v
-Access Disabled or Removed
-    |
-    v
-Audit Record
-```
-
-### Security Considerations
-
-- Timely access termination
-- Prevention of orphaned accounts
-- Preservation of required audit records
-- Access revocation validation
-- Lifecycle event documentation
-
-### Evidence
-
-Joiner and leaver workflow results will be documented.
-
----
-
-## 5. Role-Based Access Control (RBAC)
-
-### Objective
-
-Implement role-based access assignments aligned with organizational responsibilities.
+**Platforms & Protocols:** Auth0 | SAML 2.0 | OpenID Connect | OAuth 2.0 | JWT
 
 ### Technical Scope
 
-- Role definitions
-- Department-based access
-- Automatic role assignment
-- Manual role requests
-- Least-privilege enforcement
-- Role assignment validation
-
-### Example
-
-```text
-User
- |
- v
-Department
- |
- v
-Assigned Role
- |
- v
-Authorized Resources
-```
-
-### Security Focus
-
-Role-based access helps organizations manage permissions consistently and reduce unnecessary privileges.
-
-### Evidence
-
-Role configurations and access validation results will be included.
-
----
-
-## 6. Mover Lifecycle Management
-
-### Objective
-
-Validate access modifications when employees change departments or responsibilities.
-
-### Process
-
-```text
-Department Change
-    |
-    v
-Identity Attribute Updated
-    |
-    v
-Role Recalculation
-    |
-    v
-Previous Access Reviewed
-    |
-    v
-New Access Assigned
-```
-
-### Security Considerations
-
-- Excessive access accumulation
-- Removal of outdated permissions
-- Department-based role changes
-- Access reassessment
-- Separation of Duties considerations
-
-### Evidence
-
-Before-and-after role assignments and lifecycle validation results will be documented.
-
----
-
-## 7. Access Request and Approval Workflow
-
-### Objective
-
-Implement controlled access requests requiring authorization before access is granted.
-
-### Process
-
-```text
-Access Request
-    |
-    v
-Manager or Application Owner
-    |
-    v
-Approval Decision
-    |
-    v
-Provisioning
-    |
-    v
-Audit Record
-```
-
-### Technical Scope
-
-- Access request configuration
-- Approval workflow
-- Authorization controls
-- Provisioning after approval
-- Request tracking
-- Audit evidence
-
-### Evidence
-
-Workflow configuration and approval validation will be documented.
-
----
-
-## 8. Access Certification and Identity Governance
-
-### Objective
-
-Implement periodic reviews to determine whether existing access remains appropriate.
-
-### Process
-
-```text
-Access Review Campaign
-    |
-    v
-Assigned Reviewer
-    |
-    v
-Access Evaluation
-    |
-    |---- Approve
-    |
-    |---- Revoke
-    |
-    v
-Remediation and Audit
-```
-
-### Governance Focus
-
-- User access reviews
-- Role certification
-- Excessive privilege identification
-- Access revocation
-- Reviewer accountability
-- Audit trail documentation
-
-### Evidence
-
-Certification configurations, review decisions, and remediation results will be included.
-
----
-
-# Authentication and Federation Projects
-
-## 9. OpenID Connect (OIDC) Single Sign-On
-
-### Objective
-
-Configure and validate application authentication through an identity provider using OpenID Connect.
-
-### Technical Scope
-
-- Identity provider configuration
-- Application integration
-- Authentication flow
-- ID token inspection
-- Identity claims validation
-
-### Technologies
-
-Auth0, OpenID Connect, OAuth 2.0
-
-### Evidence
-
-Authentication configurations and token validation results will be documented.
-
----
-
-## 10. OAuth 2.0 Authorization
-
-### Objective
-
-Examine delegated authorization and controlled API access.
-
-### Technical Scope
-
-- Authorization flows
-- Access tokens
-- API permissions
-- OAuth scopes
-- Consent
-- Token validation
-
-### Security Focus
-
-Understanding how applications obtain limited access to protected resources.
-
-### Evidence
-
-Authorization flow configurations and validation results will be included.
-
----
-
-## 11. SAML Enterprise Single Sign-On
-
-### Objective
-
-Configure and validate federated authentication between an identity provider and an enterprise application.
-
-### Technical Scope
-
-- Identity Provider (IdP)
-- Service Provider (SP)
-- SAML assertions
-- Signing certificates
-- Attribute mapping
-- Authentication validation
-
-### Architecture
+- Enterprise Single Sign-On (SSO).
+- Identity Provider configuration.
+- Service Provider integration.
+- SAML authentication.
+- OpenID Connect authentication.
+- OAuth 2.0 authorization.
+- JWT token inspection.
+- Custom claims and identity attributes.
+- Authentication flow validation.
+- Authorization scopes and consent.
+- Federation trust relationships.
+
+### Authentication Architecture
 
 ```text
 User
@@ -501,187 +253,197 @@ Enterprise Application
  v
 Identity Provider
  |
- v
-SAML Authentication
+ |--- Authentication
+ |--- SAML / OIDC
+ |--- Token Issuance
  |
  v
 Application Access
 ```
 
-### Evidence
+### Security Considerations
 
-SAML configurations, authentication results, and sanitized assertion details will be documented.
+- Authentication and authorization boundaries.
+- Token validation.
+- Identity claim handling.
+- Authorization scopes.
+- Federation trust.
+- Secure application integration.
 
----
+### Technical Evidence
 
-## 12. Custom Claims and JWT Security
-
-### Objective
-
-Examine identity claims, token contents, and secure transmission of identity attributes.
-
-### Technical Scope
-
-- JWT structure
-- Token claims
-- Custom attributes
-- Identity metadata
-- Token validation
-- Sensitive information handling
-
-### Security Focus
-
-Understanding how applications consume identity information and how claims influence access decisions.
-
-### Evidence
-
-Token analysis and configuration examples will be included.
+Sanitized authentication configurations, token analysis, sign-in results, and protocol validation documentation will be added.
 
 ---
 
-# Additional Enterprise IAM Projects
+# Technical Competencies
 
-## 13. Microsoft Entra ID and Identity Governance
+| Domain | Professional Experience / Technical Focus |
+|--------|-------------------------------------------|
+| Identity Lifecycle | Provisioning, deprovisioning, access modification, account administration |
+| Access Security | RBAC, least privilege, time-based access, account activity reviews |
+| Identity Operations | User administration, password management, access restrictions |
+| Reporting | SQL, Python, operational reporting |
+| Identity Governance | midPoint, JML, access certification, access reviews |
+| Microsoft Identity | Entra ID, Active Directory, PowerShell |
+| Directory Services | OpenLDAP, directory integration, provisioning |
+| Authentication | SSO, SAML 2.0, OpenID Connect, OAuth 2.0 |
+| Identity Security | Access controls, auditability, authorization |
+| IAM Automation | Lifecycle workflows, account operations, access reporting |
 
-### Technical Focus
-
-- Microsoft Entra ID administration
-- User and group lifecycle management
-- Role-Based Access Control
-- Conditional Access
-- Identity Governance
-- Access Reviews
-- Privileged Identity Management concepts
-- Authentication and authorization controls
-
-### Project Objectives
-
-Configure and validate identity management and governance capabilities in Microsoft Entra ID.
-
-### Evidence
-
-Configuration documentation and technical validation results will be added.
+**Professional experience and technical project work are distinguished throughout this portfolio. Enterprise platform configurations are documented through individual implementations and supporting evidence.**
 
 ---
 
-## 14. Active Directory and PowerShell Automation
+# IAM Implementation Roadmap
 
-### Technical Focus
+The portfolio includes 15 implementation areas covering identity lifecycle management, identity governance, authentication, automation, and IAM security controls.
 
-- Active Directory user administration
-- Group membership management
-- PowerShell scripting
-- Account provisioning
-- Account deprovisioning
-- Automated JML processes
-- Access reporting
+<details>
+<summary><strong>View All 15 IAM Implementation Areas</strong></summary>
 
-### Project Objectives
+### Identity Governance & Lifecycle
 
-Develop repeatable account management procedures and automation scripts for identity lifecycle operations.
+**1. IAM Architecture and Stakeholder Mapping**
+- Enterprise identity architecture.
+- Authoritative identity sources.
+- Governance responsibilities.
+- Directory and application integration.
 
-### Evidence
+**2. HR-Driven Identity Onboarding**
+- HR source integration.
+- Identity correlation.
+- Attribute mapping.
+- Automated identity creation.
 
-PowerShell scripts, test results, and technical documentation will be included.
+**3. Provisioning to a Target Directory**
+- midPoint resource configuration.
+- OpenLDAP integration.
+- Outbound mappings.
+- Automated account provisioning.
+
+**4. Joiner and Leaver Lifecycle**
+- Employee onboarding.
+- Account creation.
+- Access termination.
+- Identity lifecycle audit records.
+
+**5. Role-Based Access Control**
+- Role definitions.
+- Department-based access.
+- Automatic role assignment.
+- Least-privilege enforcement.
+
+**6. Mover Lifecycle Management**
+- Department changes.
+- Role recalculation.
+- Access modification.
+- Removal of outdated permissions.
+
+**7. Access Request and Approval Workflow**
+- Self-service access requests.
+- Approval requirements.
+- Authorization workflows.
+- Access request auditing.
+
+**8. Access Certification and Governance**
+- Access review campaigns.
+- Reviewer decisions.
+- Access revocation.
+- Remediation validation.
+
+### Authentication & Federation
+
+**9. OpenID Connect Single Sign-On**
+- Application authentication.
+- Identity provider integration.
+- ID token validation.
+
+**10. OAuth 2.0 Authorization**
+- Delegated access.
+- API authorization.
+- OAuth scopes.
+- Access tokens.
+
+**11. SAML Enterprise SSO**
+- Identity federation.
+- Service provider integration.
+- SAML assertions.
+- Signing certificates.
+
+**12. Custom Claims and JWT Security**
+- Token structure.
+- Identity claims.
+- Metadata handling.
+- Token validation.
+
+### Enterprise IAM Engineering
+
+**13. Microsoft Entra ID and Identity Governance**
+- Identity administration.
+- Group management.
+- Conditional Access.
+- Identity Governance.
+- Access Reviews.
+
+**14. Active Directory and PowerShell Automation**
+- Account provisioning.
+- Group membership management.
+- Automated JML operations.
+- PowerShell scripts.
+- Access reporting.
+
+**15. IAM Audit and Access Controls**
+- Identity governance controls.
+- Provisioning and termination controls.
+- Access review evidence.
+- Segregation of Duties.
+- Audit documentation.
+
+</details>
 
 ---
 
-## 15. IAM Audit and Access Controls
+# Technical Documentation & Validation
 
-### Technical Focus
+Each completed technical implementation is documented with supporting materials where applicable.
 
-- Identity Governance Controls
-- User Access Reviews
-- Privileged Access Reviews
-- Access Provisioning Controls
-- Access Termination Controls
-- Audit Evidence
-- Segregation of Duties
-- IAM Risk Assessment
+| Documentation | Purpose |
+|---------------|---------|
+| Architecture Diagrams | Explain system components and identity flows |
+| Configuration Artifacts | Demonstrate actual technical configuration |
+| PowerShell Scripts | Document automation and account operations |
+| Screenshots | Provide visual evidence of implementation |
+| Test Cases | Define expected system behavior |
+| Validation Results | Demonstrate observed technical outcomes |
+| Security Considerations | Explain access controls and security decisions |
+| Audit Evidence | Support governance and control validation |
+| Technical Findings | Document implementation issues and solutions |
+| Limitations | Distinguish controlled implementations from production environments |
 
-### Project Objectives
+### Security & Data Protection
 
-Evaluate identity management processes from an access control, governance, and audit perspective.
+All publicly shared technical evidence uses fictional or sanitized identity information.
 
-### Security Frameworks
-
-- NIST Cybersecurity Framework
-- NIST SP 800-53
-- COBIT
-- SOX IT General Controls
-
-### Evidence
-
-Control assessments, access review examples, and audit documentation will be added.
-
----
-
-# Professional Experience
-
-## Identity & Access Management Functions
-### University Environment | Approximately 5 Years
-
-Provided operational support for identity and access management functions involving approximately 100 users.
-
-### Key Responsibilities
-
-- Managed user provisioning and deprovisioning activities.
-- Supported user account administration.
-- Performed password reset operations.
-- Applied role-based access restrictions.
-- Enforced least-privilege principles within assigned access scopes.
-- Managed time-based access requirements.
-- Reviewed account activities.
-- Removed access at the end of authorized periods.
-- Supported access-related reporting using SQL and Python.
-- Maintained operational oversight of user access requirements.
-
-### Experience Highlights
-
-**Identity Lifecycle:** Account creation, modification, and access termination.
-
-**Access Administration:** User permissions, access restrictions, and password management.
-
-**Security Controls:** Least privilege, authorization boundaries, and time-based access.
-
-**Operational Analysis:** Account activity reviews and reporting.
-
-This experience provides a practical foundation for enterprise IAM engineering, identity governance, and access security responsibilities.
-
----
-
-# Technical Documentation and Evidence
-
-Each implementation project may include:
-
-- Architecture diagrams
-- Configuration screenshots
-- Technical documentation
-- PowerShell scripts
-- Identity lifecycle workflows
-- Access control configurations
-- Validation results
-- Security observations
-- Audit evidence examples
-
-Sensitive information, credentials, and production data are excluded from public documentation.
+Passwords, credentials, private keys, client secrets, active access tokens, and sensitive organizational data are excluded from this repository.
 
 ---
 
 # Professional Focus
 
-My professional focus is on enterprise Identity and Access Management, combining operational access management experience with technical implementation and identity governance capabilities.
+My professional focus is enterprise Identity and Access Management, combining established operational access management experience with technical implementation, identity automation, and identity governance capabilities.
 
-Areas of particular interest include:
+I am particularly focused on identity lifecycle engineering, access security, Microsoft identity technologies, and governance-driven access management.
 
-- IAM Engineering
-- Identity Governance and Administration
-- Identity Lifecycle Automation
-- Microsoft Entra ID
-- Active Directory
-- Access Provisioning
-- IAM Security Controls
-- Identity Governance and Audit
+## Target Roles
+
+- Identity & Access Management (IAM) Analyst
+- Identity Governance & Administration (IGA) Analyst
+- IAM Engineer
+- Identity Lifecycle Analyst
+- Access Governance Analyst
+- IAM Operations Analyst
+- Identity Security Analyst
 
 ---
 
@@ -689,10 +451,10 @@ Areas of particular interest include:
 
 **Hakan Silitalay**
 
-**GitHub:** https://github.com/silitalayhakan
+**GitHub:** [github.com/silitalayhakan](https://github.com/silitalayhakan)
 
-**Portfolio:** https://github.com/silitalayhakan/enterprise-iam-engineering
+**Portfolio:** [Enterprise IAM Engineering](https://github.com/silitalayhakan/enterprise-iam-engineering)
 
 ---
 
-*Enterprise IAM Engineering | Identity Governance | Access Security*
+*Enterprise Identity & Access Management | Identity Governance | IAM Engineering | Access Security*
