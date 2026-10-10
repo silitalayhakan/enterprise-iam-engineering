@@ -1,444 +1,698 @@
-# IAM Implementation Portfolio
+# Enterprise IAM Engineering Portfolio
 
-<!--
-HOW TO USE THIS TEMPLATE
-------------------------
-This is your portfolio scaffold. The structure is already built for you.
-Your job is to fill in each section with your own work as you go through the course.
+### Identity & Access Management | Identity Governance | Access Security | IAM Engineering
 
-1. Replace every [PLACEHOLDER] with your own details.
-2. As you finish each part of the build, complete that capability's section below.
-3. Drop your screenshots into /screenshots and your config files into /artifacts,
-   then update the links.
-4. Delete these HTML comment instructions once you have filled a section.
+**Hakan Silitalay**
 
-Do not try to fill it all at once. Complete a capability's section right after you
-build it in the course, while it is fresh. That is how you end up with a portfolio
-that actually reflects what you built and understand.
+**Professional Experience:** 5 Years in Identity & Access Management Functions
 
-This portfolio is organized by CAPABILITY, not by course module. A recruiter or
-interviewer should land here and immediately see what you can DO: onboard identities,
-provision to targets, run the mover, certify access, federate with real protocols.
-That framing is what turns a portfolio into interviews. You do not need every section
-filled to start applying, build it up as you go, and lead with the capabilities you
-are most confident explaining.
--->
+**GitHub:** https://github.com/silitalayhakan
 
-**Name:** [YOUR NAME]
-**LinkedIn:** [linkedin.com/in/yourprofile]
-**GitHub:** [github.com/yourusername]
-**Status:** In progress
+**Portfolio:** https://github.com/silitalayhakan/enterprise-iam-engineering
 
 ---
 
-## What This Portfolio Shows
+## Professional Profile
 
-I built a complete IAM environment from scratch using midPoint (IGA), a simulated HR source, OpenLDAP (target directory), and Auth0 (access management and federation). The environment runs locally and replicates how IAM works on a real enterprise engagement, from HR-triggered identity lifecycle through governance and certification, to customer identity and federation with live protocols.
+Identity and Access Management professional with approximately five years of hands-on access management experience in a university environment, supporting an access scope of approximately 100 users.
 
-This repository documents my configuration, architectural decisions, and analysis for each capability I built. It is intended as portfolio evidence for IAM implementation and engineering roles.
+My professional responsibilities included user provisioning and deprovisioning, account administration, password resets, role-based access restrictions, least-privilege enforcement, time-bound access management, activity reviews, and access termination.
 
-<!-- Once you are further along, rewrite this in your own words and name the specific roles you are targeting. -->
+My experience also includes working with SQL and Python for reporting and operational analysis.
 
----
+I combine practical access management experience with technical exposure to enterprise IAM and Identity Governance and Administration (IGA) technologies.
 
-## Environment
+My current technical focus includes Microsoft Entra ID, midPoint, Active Directory, PowerShell automation, identity lifecycle management, access governance, and authentication protocols.
 
-| Component | Purpose |
-| --- | --- |
-| midPoint | IGA platform: identity lifecycle, provisioning, reconciliation, access governance |
-| SimplifyHR | HR source of truth: simulates an enterprise HRIS (Workday / SAP SuccessFactors equivalent) |
-| OpenLDAP | Target directory: named user accounts provisioned here (Active Directory equivalent) |
-| Auth0 | Access management and CIAM: OIDC, OAuth, and SAML federation |
+This portfolio documents technical implementations, configuration exercises, architectural analysis, and security controls related to enterprise identity management.
 
 ---
 
-## How This Repository Is Organized
+## Core IAM Competencies
 
-- Each capability below has its own section: the problem it solves, what I built, the key concept, evidence, and a resume bullet.
-- `/screenshots` holds the visual evidence for each capability.
-- `/artifacts` holds the actual configuration I built: resource XML, Groovy mappings, role definitions. Screenshots show it happened; artifacts show how. Artifacts are your strongest evidence for a technical interviewer.
+### Identity Lifecycle Management
 
----
+- User Provisioning
+- User Deprovisioning
+- Account Administration
+- Access Modification
+- Joiner, Mover, Leaver (JML) Processes
+- Time-Based Access Management
+- Access Termination
+- Account Activity Reviews
 
-## Capabilities Built
+### Access Control & Security
 
-**Foundations**
-- [IAM Architecture and Stakeholder Mapping](#iam-architecture-and-stakeholder-mapping)
+- Role-Based Access Control (RBAC)
+- Least Privilege
+- User Access Restrictions
+- Access Scope Management
+- Account Security
+- Password Administration
+- Access Review
+- Identity Security Controls
 
-**Identity Governance (IGA)**
-- [HR-Driven Identity Onboarding (Joiner)](#hr-driven-identity-onboarding-joiner)
-- [Provisioning to a Target Directory](#provisioning-to-a-target-directory)
-- [The Joiner and Leaver Lifecycle](#the-joiner-and-leaver-lifecycle)
-- [Role-Based Access Control (RBAC)](#role-based-access-control-rbac)
-- [The Mover Process](#the-mover-process)
-- [Access Request and Approval Workflow](#access-request-and-approval-workflow)
-- [Access Certification and the Governance Loop](#access-certification-and-the-governance-loop)
+### Technical & Operational Skills
 
-**Access Management and Federation (CIAM)**
-- [OIDC: Single Sign-On to a Real Application](#oidc-single-sign-on-to-a-real-application)
-- [OAuth: Delegated Access to a Real API](#oauth-delegated-access-to-a-real-api)
-- [SAML: Enterprise SSO](#saml-enterprise-sso)
-- [Consent, Custom Claims, and the JWT](#consent-custom-claims-and-the-jwt)
-
-**Outcome**
-- [My Transformation and Interview Readiness](#my-transformation-and-interview-readiness)
-
----
-
-## IAM Architecture and Stakeholder Mapping
-
-**The capability:** [Describe it. Example: before touching a tool, map the IAM architecture and understand what each stakeholder group needs, so requirements drive the design rather than the reverse.]
-
-**What I did:**
-[Describe the architecture you mapped: the source, the IGA platform, the target, and the access management layer. Note the stakeholder groups you identified and what each cared about.]
-
-**Architecture diagram:**
-```
-[Draw your architecture as a simple text diagram, for example:]
-SimplifyHR (source of truth)
-      |  midPoint reads changes
-      v
-midPoint (IGA: lifecycle, RBAC, governance, audit)
-      |  provisions accounts
-      v
-OpenLDAP (target directory)
-
-Auth0 (access management: OIDC, OAuth, SAML) handles external and app federation
-```
-
-**Stakeholder mapping:**
-
-| Stakeholder | What they care about | How I would speak to them |
-| --- | --- | --- |
-| HR | [fill in] | [fill in] |
-| InfoSec | [fill in] | [fill in] |
-| Application owners | [fill in] | [fill in] |
-| Auditors | [fill in] | [fill in] |
-| Business lead | [fill in] | [fill in] |
-
-**The key concept I understood:**
-[Example: IGA and access management are not the same layer. IGA answers who should have access and can we prove it; access management answers are you who you say you are and can you get in right now. Conflating them is a common scoping mistake.]
-
-**Screenshots:**
-![Architecture overview](screenshots/architecture-overview.png)
-
-**Enterprise equivalent:**
-[SimplifyHR maps to Workday or SAP SuccessFactors; midPoint to SailPoint or Saviynt; OpenLDAP to Active Directory or Okta Universal Directory; Auth0 to Okta or Entra ID.]
-
-**Resume bullet:**
-> [Your line. Example: Mapped an end-to-end IAM architecture across IGA, access management, and directory layers, and translated stakeholder requirements into design decisions before implementation.]
+- Identity and Access Administration
+- SQL Reporting
+- Python-Based Reporting
+- User Activity Analysis
+- Access Documentation
+- Operational Access Controls
+- Account Lifecycle Procedures
 
 ---
 
-## HR-Driven Identity Onboarding (Joiner)
+## Enterprise IAM Technologies
 
-**The capability:** [In one or two sentences: an organization needs employee identities created automatically from its HR system, with no manual account creation.]
+The following technologies are included in my technical implementation and validation portfolio.
 
-**What I built:**
-[The SimplifyHR connector, the inbound attribute mappings including any Groovy, the correlation rule. A few sentences.]
+| Technology | Technical Focus |
+|------------|-----------------|
+| Microsoft Entra ID | Identity Management, RBAC, Conditional Access |
+| Microsoft Active Directory | User and Group Administration |
+| PowerShell | IAM Automation and Account Management |
+| midPoint | Identity Governance and Administration |
+| OpenLDAP | Directory Services and Provisioning |
+| Auth0 | Authentication, SSO and Federation |
+| OAuth 2.0 | Delegated Authorization |
+| OpenID Connect | Identity Federation |
+| SAML 2.0 | Enterprise Single Sign-On |
+| SQL | Identity Data Analysis and Reporting |
+| Python | Reporting and Automation |
 
-**How it works:**
-```
-SimplifyHR (hr.csv)  ->  midPoint (inbound mappings, correlation)  ->  identities created
+Enterprise platform experience is documented through individual technical projects and supporting evidence.
+
+---
+
+# IAM Engineering Projects
+
+This repository contains a structured collection of enterprise IAM implementation and validation projects.
+
+Each project documents the technical objective, configuration approach, security considerations, and supporting evidence.
+
+Project documentation and evidence are added as implementations are completed.
+
+---
+
+## 1. IAM Architecture and Stakeholder Mapping
+
+### Objective
+
+Understand and document how enterprise identity systems integrate across HR platforms, identity governance solutions, directories, and authentication services.
+
+### Architecture
+
+```text
+HR System
+    |
+    v
+Identity Governance Platform
+    |
+    |---- Identity Lifecycle
+    |---- Provisioning
+    |---- Role Management
+    |---- Access Reviews
+    |---- Audit Records
+    |
+    v
+Enterprise Directory
+    |
+    v
+Applications and Services
 ```
 
-**The key concept I understood:**
-[Example: HR is the source of truth. midPoint reads from it and never writes back. Correlation prevents duplicate identities.]
+### Technical Scope
 
-**Screenshots:**
-![Identities imported into midPoint](screenshots/joiner-midpoint-users.png)
-![Audit log showing automatic creation](screenshots/joiner-audit-log.png)
+- Identity architecture
+- Source-of-truth identification
+- Identity lifecycle processes
+- Governance responsibilities
+- Application access requirements
+- Security and audit requirements
 
-**Artifacts:**
-[Link the SimplifyHR resource config and inbound mappings, for example artifacts/simplifyhr-resource.xml and artifacts/inbound-email-mapping.groovy]
+### Enterprise Technologies
 
-**Enterprise equivalent:**
-[The CSV connector maps to a Workday REST or SAP SuccessFactors HR connector in SailPoint or Saviynt.]
+midPoint, OpenLDAP, Microsoft Entra ID, Active Directory
 
-**Resume bullet:**
-> [Your line.]
+### Evidence
 
----
-
-## Provisioning to a Target Directory
-
-**The capability:** [Describe it: turning an identity in the IGA platform into a real account in a target system, automatically.]
-
-**What I built:**
-[The OpenLDAP resource, the outbound mappings, the DN routing script, and the role inducement that triggers provisioning.]
-
-**How it works:**
-```
-midPoint (outbound mappings, DN routing)  ->  OpenLDAP connector  ->  accounts in ou=people
-```
-
-**The key concept I understood:**
-[Example: the role is the provisioning trigger, not the resource. Without a role inducement pointing at the directory, no account is ever created. The chain is focus object -> role assignment -> role inducement -> resource construction -> account.]
-
-**Screenshots:**
-![Accounts provisioned in the directory](screenshots/provisioning-ldap-accounts.png)
-
-**Artifacts:**
-[Link the OpenLDAP resource config, outbound mappings, and DN routing script, for example artifacts/openldap-resource.xml and artifacts/dn-routing.groovy]
-
-**Enterprise equivalent:**
-[Access Profile with provisioning policy in SailPoint, entitlement provisioning rule in Saviynt.]
-
-**Resume bullet:**
-> [Your line.]
+Architecture diagrams and configuration documentation will be included with the implementation.
 
 ---
 
-## The Joiner and Leaver Lifecycle
+## 2. HR-Driven Identity Onboarding
 
-**The capability:** [Describe it: a new hire gets access automatically, and a departing employee loses it automatically, both driven from HR.]
+### Objective
 
-**What I built:**
-[The live joiner (a new employee added in HR, provisioned automatically) and the live leaver (a termination that disables and removes access), with audit evidence for both.]
+Implement identity creation processes based on employee information maintained by an authoritative HR source.
 
-**The key concept I understood:**
-[Example: on termination, disable and retain, do not delete. The identity and its full history stay for compliance, while active access is removed. Deleting destroys audit evidence.]
+### Architecture
 
-**Screenshots:**
-![Joiner provisioned automatically](screenshots/joiner-new-hire.png)
-![Leaver disabled and removed from active accounts](screenshots/leaver-disabled.png)
-
-**Artifacts:**
-[Link the DN routing script that moves disabled accounts to ou=inactive, and the status mapping, for example artifacts/status-mapping.groovy]
-
-**Production note:**
-[Explain the difference between what the lab did and what production should do (disable and move to inactive vs delete), and why it matters for audit and forensics.]
-
-**Resume bullet:**
-> [Your line.]
-
----
-
-## Role-Based Access Control (RBAC)
-
-**The capability:** [Describe it: access granted by role, not by hand, with roles assigned automatically where appropriate and requested where a human decision is needed.]
-
-**What I built:**
-[Your department roles with auto-assignment, and a manually requested role. Explain the two patterns.]
-
-**The two RBAC patterns:**
-
-| Pattern | Roles | Assigned when | Removed when |
-| --- | --- | --- | --- |
-| Auto-assigned | [e.g. Engineering_Employee, HR_Employee] | [condition true] | [condition false on next recompute] |
-| Manually requested | [e.g. Contractor] | [request plus approval] | [explicit revocation or certification] |
-
-**The key concept I understood:**
-[Example: strong-strength auto-assign rules mean the HR source always wins. A department change automatically removes the old role and adds the new one, but manually granted access persists until reviewed.]
-
-**Screenshots:**
-![Roles list](screenshots/rbac-roles.png)
-![A user with auto-assigned and requested roles](screenshots/rbac-user-roles.png)
-
-**Artifacts:**
-[Link your role definitions with autoassign blocks, for example artifacts/engineering-employee-role.xml and artifacts/hr-employee-role.xml]
-
-**Enterprise equivalent:**
-[Birthright roles and lifecycle event rules in SailPoint; Role Assignment Policy in Saviynt; Lifecycle Workflows in Entra ID Governance.]
-
-**Resume bullet:**
-> [Your line.]
-
----
-
-## The Mover Process
-
-**The capability:** [Describe it: when someone changes department, their old access is removed and their new access is granted, automatically.]
-
-**What I built:**
-[The department change in HR, the reconciliation, and the role delta that followed. Note what stayed (manually granted access) and what changed.]
-
-**How it works:**
-```
-HR department change  ->  reconciliation  ->  auto-assign rules re-evaluate
-  old department role removed, new department role added, manual roles stay
+```text
+SimplifyHR
+    |
+    v
+midPoint
+    |
+    v
+Identity Creation
+    |
+    v
+Target Directory
 ```
 
-**The key concept I understood:**
-[Example: the mover is riskier than the joiner because the person carries their history. Manually granted access does not disappear on a move; it persists until a review catches it. That is why certification exists.]
+### Technical Scope
 
-**Screenshots:**
-![Roles before the mover](screenshots/mover-before.png)
-![Roles after the mover](screenshots/mover-after.png)
+- HR source integration
+- Identity correlation
+- Attribute mapping
+- Automated identity creation
+- Duplicate identity prevention
+- Provisioning validation
 
-**Artifacts:**
-[Reference the same role artifacts; the strong-strength condition is what makes the mover work.]
+### Evidence
 
-**Enterprise equivalent:**
-[Lifecycle event / mover workflow in SailPoint or Entra ID Governance.]
-
-**Resume bullet:**
-> [Your line.]
+Connector configurations, screenshots, and validation results will be documented.
 
 ---
 
-## Access Request and Approval Workflow
+## 3. Provisioning to a Target Directory
 
-**The capability:** [Describe it: a user requests access they are not automatically entitled to, and it is granted only after approval.]
+### Objective
 
-**What I built:**
-[The self-service request for the manually requestable role, and the approval step that granted it.]
+Configure identity provisioning between an IGA platform and a directory service.
 
-**The key concept I understood:**
-[Example: not all access should be automatic. Elevated or sensitive access goes through request and approval, which creates human accountability and an audit record of who approved what.]
+### Technical Scope
 
-**Screenshots:**
-![Access request submitted](screenshots/request-submitted.png)
-![Request approved](screenshots/request-approved.png)
+- midPoint resource configuration
+- OpenLDAP integration
+- Account attribute mapping
+- Role-driven provisioning
+- Account creation validation
+- Provisioning event analysis
 
-**Artifacts:**
-[Link the role that is requestable, if you exported it.]
+### Architecture
 
-**Enterprise equivalent:**
-[Access request via the IGA self-service catalog with an approval workflow in SailPoint, often integrated with ServiceNow.]
-
-**Resume bullet:**
-> [Your line.]
-
----
-
-## Access Certification and the Governance Loop
-
-**The capability:** [Describe it: periodically, reviewers confirm or revoke the access people hold, catching what automated provisioning cannot reach.]
-
-**What I built:**
-[The certification campaign, the reviewer, the review decisions, and the automated remediation that removed revoked access.]
-
-**How it works:**
-```
-Certification campaign  ->  reviewer certifies or revokes each item
-  ->  automated remediation removes revoked access  ->  audit trail
+```text
+midPoint
+    |
+    v
+Provisioning Connector
+    |
+    v
+OpenLDAP
+    |
+    v
+User Account
 ```
 
-**The key concept I understood:**
-[Example: certification closes the governance loop. After a mover leaves stale access behind, certification is the mechanism that catches and removes it, with a timestamped record for audit.]
+### Evidence
 
-**Screenshots:**
-![Certification items under review](screenshots/certification-items.png)
-![Access revoked after review](screenshots/certification-revoked.png)
-
-**Artifacts:**
-[Link the certification campaign definition if you exported it, for example artifacts/certification-campaign.xml]
-
-**Compliance angle:**
-[If you have a GRC or audit background, map events to controls, for example SOC 2 CC6.2 and CC6.3. If not, explain why certification matters for audit.]
-
-**Resume bullet:**
-> [Your line.]
+Resource configurations, provisioning results, and supporting screenshots will be added.
 
 ---
 
-## OIDC: Single Sign-On to a Real Application
+## 4. Joiner and Leaver Lifecycle
 
-**The capability:** [Describe it: a user logs into a third-party application using an identity held in your identity provider, without giving that app a password.]
+### Objective
 
-**What I built:**
-[Your Auth0 tenant connected to a real application via OIDC, and the login working end to end. Note where you inspected the token.]
+Validate identity lifecycle processes for employee onboarding and termination.
 
-**The key concept I understood:**
-[Example: OIDC is about identity, who you are. The ID token is a signed statement from the identity provider that the application trusts, so the app never handles a password.]
+### Joiner Process
 
-**Screenshots:**
-![Login via Auth0](screenshots/oidc-login.png)
-![Decoded ID token claims](screenshots/oidc-token.png)
+```text
+New Employee
+    |
+    v
+HR Record Created
+    |
+    v
+Identity Provisioned
+    |
+    v
+Access Assigned
+```
 
-**Artifacts:**
-[Link any relevant config, for example the OIDC application settings or a note of the endpoints used.]
+### Leaver Process
 
-**Enterprise equivalent:**
-[The same pattern as Okta or Entra ID acting as the identity provider for a SaaS application.]
+```text
+Employee Termination
+    |
+    v
+HR Status Updated
+    |
+    v
+Identity Lifecycle Process
+    |
+    v
+Access Disabled or Removed
+    |
+    v
+Audit Record
+```
 
-**Resume bullet:**
-> [Your line.]
+### Security Considerations
 
----
+- Timely access termination
+- Prevention of orphaned accounts
+- Preservation of required audit records
+- Access revocation validation
+- Lifecycle event documentation
 
-## OAuth: Delegated Access to a Real API
+### Evidence
 
-**The capability:** [Describe it: an application is granted permission to act on a user's behalf against an API, limited to exactly what the user consented to.]
-
-**What I built:**
-[The OAuth flow against a real API, the consent step, the token exchange, and the scope boundary you demonstrated.]
-
-**The key concept I understood:**
-[Example: OAuth is about authorization, what an app may do, not who you are. The token carries only the scopes consented to, so a compromised app can do only what it was granted and nothing more.]
-
-**Screenshots:**
-![Consent screen showing requested scope](screenshots/oauth-consent.png)
-![Scope boundary enforced](screenshots/oauth-scope.png)
-
-**Artifacts:**
-[Link any relevant config or the request you constructed.]
-
-**Enterprise equivalent:**
-[Delegated API authorization, the same model behind every Sign in with and every third-party app permission grant.]
-
-**Resume bullet:**
-> [Your line.]
-
----
-
-## SAML: Enterprise SSO
-
-**The capability:** [Describe it: your identity provider federates a user into a real enterprise application using SAML, and you can read the assertion that flows between them.]
-
-**What I built:**
-[Auth0 as the identity provider for a real enterprise application via SAML, the trust setup with the signing certificate, and the login working. Note where you captured and read the assertion.]
-
-**The key concept I understood:**
-[Example: SAML establishes trust through a signed assertion. The service provider believes the assertion only because it is signed by a certificate it already trusts. The NameID identifies the user, and the attribute statement carries their attributes.]
-
-**Screenshots:**
-![SAML login into the application](screenshots/saml-login.png)
-![Decoded SAML assertion](screenshots/saml-assertion.png)
-
-**Artifacts:**
-[Link the SAML attribute mapping or relevant config if you exported it.]
-
-**Enterprise equivalent:**
-[Enterprise SSO into applications like Salesforce or Workday, still the dominant pattern for legacy and enterprise SaaS.]
-
-**Resume bullet:**
-> [Your line.]
+Joiner and leaver workflow results will be documented.
 
 ---
 
-## Consent, Custom Claims, and the JWT
+## 5. Role-Based Access Control (RBAC)
 
-**The capability:** [Describe it: controlling what user data reaches an application through the token, including consent flags, and understanding what stays out of the token.]
+### Objective
 
-**What I built:**
-[Your work with user_metadata and app_metadata in Auth0, the consent or terms-accepted flags, and any custom claim you surfaced into the token.]
+Implement role-based access assignments aligned with organizational responsibilities.
 
-**The key concept I understood:**
-[Example: nothing from the user profile reaches the JWT unless you explicitly put it there. User-changeable data belongs in user_metadata; application decisions like consent flags belong in app_metadata; audit data can stay out of the token entirely.]
+### Technical Scope
 
-**Screenshots:**
-![Custom claim in the decoded token](screenshots/jwt-custom-claim.png)
+- Role definitions
+- Department-based access
+- Automatic role assignment
+- Manual role requests
+- Least-privilege enforcement
+- Role assignment validation
 
-**Artifacts:**
-[Link the Auth0 Login Action script if you wrote one, for example artifacts/auth0-login-action.js]
+### Example
 
-**Enterprise equivalent:**
-[Token customization and consent management in any CIAM platform, Auth0, Okta CIC, Ping, or Entra External ID.]
+```text
+User
+ |
+ v
+Department
+ |
+ v
+Assigned Role
+ |
+ v
+Authorized Resources
+```
 
-**Resume bullet:**
-> [Your line.]
+### Security Focus
+
+Role-based access helps organizations manage permissions consistently and reduce unnecessary privileges.
+
+### Evidence
+
+Role configurations and access validation results will be included.
 
 ---
 
-## My Transformation and Interview Readiness
+## 6. Mover Lifecycle Management
 
-**Where I started:** [Your background before this: your current role and skills. Be honest and specific.]
+### Objective
 
-**Where I am now:** [What you can do now that you could not before. Update as you progress.]
+Validate access modifications when employees change departments or responsibilities.
 
-**What I can demo in an interview:**
-[List the capabilities you can open your laptop and show live, for example the full joiner and leaver lifecycle, the mover with role delta, a certification campaign, and OIDC or SAML login. This is your strongest closing line in any interview.]
+### Process
 
-**Roles I am targeting:** [List the roles you are aiming for.]
+```text
+Department Change
+    |
+    v
+Identity Attribute Updated
+    |
+    v
+Role Recalculation
+    |
+    v
+Previous Access Reviewed
+    |
+    v
+New Access Assigned
+```
+
+### Security Considerations
+
+- Excessive access accumulation
+- Removal of outdated permissions
+- Department-based role changes
+- Access reassessment
+- Separation of Duties considerations
+
+### Evidence
+
+Before-and-after role assignments and lifecycle validation results will be documented.
+
+---
+
+## 7. Access Request and Approval Workflow
+
+### Objective
+
+Implement controlled access requests requiring authorization before access is granted.
+
+### Process
+
+```text
+Access Request
+    |
+    v
+Manager or Application Owner
+    |
+    v
+Approval Decision
+    |
+    v
+Provisioning
+    |
+    v
+Audit Record
+```
+
+### Technical Scope
+
+- Access request configuration
+- Approval workflow
+- Authorization controls
+- Provisioning after approval
+- Request tracking
+- Audit evidence
+
+### Evidence
+
+Workflow configuration and approval validation will be documented.
+
+---
+
+## 8. Access Certification and Identity Governance
+
+### Objective
+
+Implement periodic reviews to determine whether existing access remains appropriate.
+
+### Process
+
+```text
+Access Review Campaign
+    |
+    v
+Assigned Reviewer
+    |
+    v
+Access Evaluation
+    |
+    |---- Approve
+    |
+    |---- Revoke
+    |
+    v
+Remediation and Audit
+```
+
+### Governance Focus
+
+- User access reviews
+- Role certification
+- Excessive privilege identification
+- Access revocation
+- Reviewer accountability
+- Audit trail documentation
+
+### Evidence
+
+Certification configurations, review decisions, and remediation results will be included.
+
+---
+
+# Authentication and Federation Projects
+
+## 9. OpenID Connect (OIDC) Single Sign-On
+
+### Objective
+
+Configure and validate application authentication through an identity provider using OpenID Connect.
+
+### Technical Scope
+
+- Identity provider configuration
+- Application integration
+- Authentication flow
+- ID token inspection
+- Identity claims validation
+
+### Technologies
+
+Auth0, OpenID Connect, OAuth 2.0
+
+### Evidence
+
+Authentication configurations and token validation results will be documented.
+
+---
+
+## 10. OAuth 2.0 Authorization
+
+### Objective
+
+Examine delegated authorization and controlled API access.
+
+### Technical Scope
+
+- Authorization flows
+- Access tokens
+- API permissions
+- OAuth scopes
+- Consent
+- Token validation
+
+### Security Focus
+
+Understanding how applications obtain limited access to protected resources.
+
+### Evidence
+
+Authorization flow configurations and validation results will be included.
+
+---
+
+## 11. SAML Enterprise Single Sign-On
+
+### Objective
+
+Configure and validate federated authentication between an identity provider and an enterprise application.
+
+### Technical Scope
+
+- Identity Provider (IdP)
+- Service Provider (SP)
+- SAML assertions
+- Signing certificates
+- Attribute mapping
+- Authentication validation
+
+### Architecture
+
+```text
+User
+ |
+ v
+Enterprise Application
+ |
+ v
+Identity Provider
+ |
+ v
+SAML Authentication
+ |
+ v
+Application Access
+```
+
+### Evidence
+
+SAML configurations, authentication results, and sanitized assertion details will be documented.
+
+---
+
+## 12. Custom Claims and JWT Security
+
+### Objective
+
+Examine identity claims, token contents, and secure transmission of identity attributes.
+
+### Technical Scope
+
+- JWT structure
+- Token claims
+- Custom attributes
+- Identity metadata
+- Token validation
+- Sensitive information handling
+
+### Security Focus
+
+Understanding how applications consume identity information and how claims influence access decisions.
+
+### Evidence
+
+Token analysis and configuration examples will be included.
+
+---
+
+# Additional Enterprise IAM Projects
+
+## 13. Microsoft Entra ID and Identity Governance
+
+### Technical Focus
+
+- Microsoft Entra ID administration
+- User and group lifecycle management
+- Role-Based Access Control
+- Conditional Access
+- Identity Governance
+- Access Reviews
+- Privileged Identity Management concepts
+- Authentication and authorization controls
+
+### Project Objectives
+
+Configure and validate identity management and governance capabilities in Microsoft Entra ID.
+
+### Evidence
+
+Configuration documentation and technical validation results will be added.
+
+---
+
+## 14. Active Directory and PowerShell Automation
+
+### Technical Focus
+
+- Active Directory user administration
+- Group membership management
+- PowerShell scripting
+- Account provisioning
+- Account deprovisioning
+- Automated JML processes
+- Access reporting
+
+### Project Objectives
+
+Develop repeatable account management procedures and automation scripts for identity lifecycle operations.
+
+### Evidence
+
+PowerShell scripts, test results, and technical documentation will be included.
+
+---
+
+## 15. IAM Audit and Access Controls
+
+### Technical Focus
+
+- Identity Governance Controls
+- User Access Reviews
+- Privileged Access Reviews
+- Access Provisioning Controls
+- Access Termination Controls
+- Audit Evidence
+- Segregation of Duties
+- IAM Risk Assessment
+
+### Project Objectives
+
+Evaluate identity management processes from an access control, governance, and audit perspective.
+
+### Security Frameworks
+
+- NIST Cybersecurity Framework
+- NIST SP 800-53
+- COBIT
+- SOX IT General Controls
+
+### Evidence
+
+Control assessments, access review examples, and audit documentation will be added.
+
+---
+
+# Professional Experience
+
+## Identity & Access Management Functions
+### University Environment | Approximately 5 Years
+
+Provided operational support for identity and access management functions involving approximately 100 users.
+
+### Key Responsibilities
+
+- Managed user provisioning and deprovisioning activities.
+- Supported user account administration.
+- Performed password reset operations.
+- Applied role-based access restrictions.
+- Enforced least-privilege principles within assigned access scopes.
+- Managed time-based access requirements.
+- Reviewed account activities.
+- Removed access at the end of authorized periods.
+- Supported access-related reporting using SQL and Python.
+- Maintained operational oversight of user access requirements.
+
+### Experience Highlights
+
+**Identity Lifecycle:** Account creation, modification, and access termination.
+
+**Access Administration:** User permissions, access restrictions, and password management.
+
+**Security Controls:** Least privilege, authorization boundaries, and time-based access.
+
+**Operational Analysis:** Account activity reviews and reporting.
+
+This experience provides a practical foundation for enterprise IAM engineering, identity governance, and access security responsibilities.
+
+---
+
+# Technical Documentation and Evidence
+
+Each implementation project may include:
+
+- Architecture diagrams
+- Configuration screenshots
+- Technical documentation
+- PowerShell scripts
+- Identity lifecycle workflows
+- Access control configurations
+- Validation results
+- Security observations
+- Audit evidence examples
+
+Sensitive information, credentials, and production data are excluded from public documentation.
+
+---
+
+# Professional Focus
+
+My professional focus is on enterprise Identity and Access Management, combining operational access management experience with technical implementation and identity governance capabilities.
+
+Areas of particular interest include:
+
+- IAM Engineering
+- Identity Governance and Administration
+- Identity Lifecycle Automation
+- Microsoft Entra ID
+- Active Directory
+- Access Provisioning
+- IAM Security Controls
+- Identity Governance and Audit
+
+---
+
+# Contact
+
+**Hakan Silitalay**
+
+**GitHub:** https://github.com/silitalayhakan
+
+**Portfolio:** https://github.com/silitalayhakan/enterprise-iam-engineering
+
+---
+
+*Enterprise IAM Engineering | Identity Governance | Access Security*
